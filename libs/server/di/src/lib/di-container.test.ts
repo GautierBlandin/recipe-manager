@@ -77,8 +77,9 @@ describe('di-container', () => {
     describe('external dependencies', () => {
       class ExternalNumberLogger {
         public loggedNumber?: number;
+        private readonly numberGetter: NumberGetter;
 
-        constructor(private readonly numberGetter: NumberGetter) {
+        constructor(numberGetter: NumberGetter) {
           this.numberGetter = numberGetter;
         }
 
