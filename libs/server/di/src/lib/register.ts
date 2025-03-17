@@ -7,7 +7,7 @@ import {
   Provider,
 } from './Provider.js';
 
-export const register = <T = any>(
+export const register = <T = unknown>(
   token: DIToken<T>,
   provider: Provider<T>
 ): void => {
