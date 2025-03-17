@@ -1,21 +1,10 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import express from 'express';
+import serverlessExpress from '@codegenie/serverless-express';
 
-import { Logger } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
+const app = express();
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-  );
-}
+app.get('/', (req, res) => {
+  res.send({ message: 'Hello API' });
+});
 
-bootstrap();
+export const handler = serverlessExpress({ app });

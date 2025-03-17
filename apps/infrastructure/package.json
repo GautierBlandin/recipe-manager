@@ -1,0 +1,25 @@
+{
+  "name": "@recipe-manager/infrastructure",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+      "deploy": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "pulumi up",
+          "cwd": "apps/infrastructure"
+        }
+      },
+      "destroy": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "pulumi down",
+          "cwd": "apps/infrastructure"
+        }
+      }
+    }
+  }
+}
