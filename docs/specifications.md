@@ -44,9 +44,15 @@ A web application for casual users and home cooks to store favorite recipes and 
 ## Technical Requirements
 
 - Frontend: React
-- Backend: AWS Serverless
+  - Zustand for state management
+  - Tailwind for css
+- Backend: Node.js
+  - Nestjs desployed on AWS Lambda function with direct url integration
+  - AWS Cognito for user authentication
 - Database: Neon (serverless PostgreSQL)
-- Measurements: Metric system only
+  - node-pg-migrate to handle migrations
+  - pg (node-postgres) for the sql client
+- CDN: AWS Cloudfront
 
 ## Not Included in MVP
 
