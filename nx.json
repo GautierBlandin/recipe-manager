@@ -28,7 +28,7 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["apps/server/*"]
+      "exclude": ["apps/server/*", "libs/server/di/*"]
     },
     {
       "plugin": "@nx/eslint/plugin",
@@ -45,11 +45,25 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["apps/server/*"],
+      "include": ["apps/server/*", "libs/server/di/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"
         }
+      }
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
       }
     }
   ],
@@ -60,7 +74,7 @@
       "inputs": ["production", "^production"]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "^build"]
     }
   }
 }
